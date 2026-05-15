@@ -1,0 +1,109 @@
+.filters {
+  width: 924px;
+  height: 68px;
+
+  margin: 0 auto 56px;
+
+  display: grid;
+  grid-template-columns: 204px 204px 160px 160px 156px;
+
+  align-items: end;
+
+  gap: 16px;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  color: var(--gray);
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.filters select {
+  width: 204px;
+  height: 44px;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 0 16px;
+
+  background: var(--inputs);
+
+  color: var(--main);
+
+  outline: none;
+}
+
+.filters input {
+  width: 160px;
+  height: 44px;
+
+  border: none;
+
+  padding: 0 16px;
+
+  background: var(--inputs);
+
+  color: var(--main);
+
+  outline: none;
+}
+
+.filters label:nth-of-type(3) input {
+  border-radius: 12px 0 0 12px;
+}
+
+.filters label:nth-of-type(4) input {
+  border-radius: 0 12px 12px 0;
+}
+
+.filters input::placeholder {
+  color: var(--main);
+}
+
+.filters button {
+  width: 156px;
+}
+
+@media (max-width: 1279px) {
+  .filters {
+    width: 100%;
+
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+
+    justify-content: center;
+  }
+
+  .filters button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .filters {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-bottom: 40px;
+  }
+
+  .filters label,
+  .filters select,
+  .filters input,
+  .filters button {
+    width: 100%;
+  }
+
+  .filters label:nth-of-type(3) input,
+  .filters label:nth-of-type(4) input {
+    border-radius: 12px;
+  }
+}

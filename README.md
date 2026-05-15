@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RentalCar
 
-## Getting Started
+RentalCar is a modern car rental web application built with Next.js and TypeScript.
 
-First, run the development server:
+The application allows users to browse available cars, filter them by different criteria, view detailed information, and send rental requests.
+
+## Live Demo
+
+[Live Website](YOUR_DEPLOY_LINK)
+
+## GitHub Repository
+
+[GitHub Repository](YOUR_GITHUB_LINK)
+
+---
+
+## Features
+
+- Home page with hero section
+- Car catalog with backend filtering
+- Infinite pagination with Load More
+- Car details page
+- Rental booking form
+- Custom calendar UI for booking form
+- Favorite button UI on car cards
+- Notifications after successful booking
+- Responsive UI
+- Custom animated loader
+- Backend API integration
+
+---
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- TanStack Query
+- Axios
+- CSS Modules
+- React Hot Toast
+- React Icons
+
+---
+
+## Project Structure
+
+```txt
+app/
+components/
+hooks/
+lib/
+types/
+public/
+```
+
+---
+
+## Pages
+
+### `/`
+
+Home page with hero section and navigation to catalog.
+
+### `/catalog`
+
+Catalog page with:
+- cars list
+- filtering
+- pagination
+- load more functionality
+
+### `/catalog/[carId]`
+
+Car details page with:
+- detailed information
+- car image
+- rental form
+
+---
+
+## Filters
+
+Users can filter cars by:
+
+- brand
+- rental price
+- mileage from
+- mileage to
+
+Filtering is implemented on the backend.
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone YOUR_GITHUB_LINK
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create `.env.local` file:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_API_URL=https://car-rental-api.goit.study
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Deployment
+
+The project is deployed on Vercel.
+
+---
+
+## Author
+
+Yevhenii Mykhailov
+
+Junior Frontend Developer focused on React and Next.js development.

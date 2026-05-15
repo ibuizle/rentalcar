@@ -1,0 +1,181 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 268px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.favoriteButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(4px);
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease;
+}
+
+.favoriteButton:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.favoriteButton:focus-visible {
+  outline: 2px solid #3470ff;
+  outline-offset: 3px;
+}
+
+.favoriteIcon {
+  width: 20px;
+  height: 20px;
+
+  stroke-width: 2;
+
+  color: #ffffff;
+
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+
+  transition:
+    color 250ms ease,
+    fill 250ms ease,
+    transform 250ms ease;
+}
+
+.favoriteActive {
+  color: #3470ff;
+  fill: #3470ff;
+}
+
+.favoriteButton:hover .favoriteIcon {
+  transform: scale(1.08);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+  flex-grow: 1;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+
+  min-height: 40px;
+}
+
+.title {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+
+  color: #101828;
+}
+
+.model {
+  color: #3470ff;
+}
+
+.price {
+  flex-shrink: 0;
+
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+
+  color: #101828;
+
+  white-space: nowrap;
+}
+
+.meta {
+  margin-top: 8px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  column-gap: 4px;
+  row-gap: 4px;
+
+  min-height: 36px;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+
+  color: #8d929a;
+}
+
+.button {
+  margin-top: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 44px;
+
+  border-radius: 12px;
+
+  background-color: #3470ff;
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+
+  text-decoration: none;
+
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: #0b44cd;
+}
+
+.button:focus-visible {
+  outline: 2px solid #3470ff;
+  outline-offset: 3px;
+}
+
+.button:active {
+  transform: scale(0.98);
+}

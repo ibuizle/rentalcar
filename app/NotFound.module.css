@@ -1,0 +1,10 @@
+.notFound {
+  min-height: calc(100vh - 68px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.notFound h1 {
+  margin: 0 0 24px;
+}

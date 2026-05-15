@@ -1,0 +1,96 @@
+.rentalForm {
+  width: 640px;
+  min-height: 488px;
+  padding: 32px;
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  background: var(--white);
+}
+
+.rentalForm h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.rentalForm p {
+  margin: 0 0 24px;
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.rentalForm input,
+.rentalForm textarea {
+  width: 576px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  background: var(--inputs);
+  color: var(--main);
+  outline: none;
+  margin-bottom: 16px;
+
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.rentalForm input {
+  height: 48px;
+}
+
+.rentalForm textarea {
+  height: 88px;
+  resize: none;
+  margin-bottom: 24px;
+}
+
+.rentalForm input::placeholder,
+.rentalForm textarea::placeholder {
+  color: var(--gray);
+}
+
+.rentalForm input:hover,
+.rentalForm textarea:hover {
+  background-color: #f2f4f7;
+}
+
+.rentalForm input:focus-visible,
+.rentalForm textarea:focus-visible {
+  outline: 2px solid var(--button);
+  outline-offset: 3px;
+}
+
+.formButton {
+  width: 156px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.formButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.formButton:focus-visible {
+  outline: 2px solid var(--button);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1279px) {
+  .rentalForm {
+    width: 100%;
+  }
+
+  .rentalForm input,
+  .rentalForm textarea {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .rentalForm {
+    padding: 24px;
+  }
+}
