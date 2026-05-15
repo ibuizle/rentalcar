@@ -1,87 +1,211 @@
 .filters {
   width: 924px;
-  height: 68px;
-
   margin: 0 auto 56px;
 
   display: grid;
-  grid-template-columns: 204px 204px 160px 160px 156px;
-
+  grid-template-columns: 204px 204px 320px 156px;
   align-items: end;
-
   gap: 16px;
 }
 
-.filters label {
+.field {
   display: flex;
   flex-direction: column;
-
   gap: 8px;
+}
 
+.label {
   color: var(--gray);
 
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.33;
 }
 
-.filters select {
+.selectWrapper {
+  position: relative;
+  width: 204px;
+}
+
+.selectButton {
   width: 204px;
   height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  padding: 0 16px;
 
   border: none;
   border-radius: 12px;
 
-  padding: 0 16px;
-
   background: var(--inputs);
+  color: var(--main);
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: left;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.selectButton span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selectIcon {
+  flex-shrink: 0;
 
   color: var(--main);
 
-  outline: none;
+  transform: rotate(0deg);
+  transition: transform 180ms ease;
 }
 
-.filters input {
+.selectIconOpen {
+  transform: rotate(180deg);
+}
+
+.optionsList {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 4px);
+  left: 0;
+
+  width: 100%;
+  max-height: 272px;
+  margin: 0;
+  padding: 8px;
+
+  overflow-y: auto;
+
+  list-style: none;
+
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 4px 36px rgb(0 0 0 / 8%);
+}
+
+.option {
+  width: 100%;
+  min-height: 36px;
+
+  padding: 8px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--main);
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.option:hover,
+.option:focus {
+  background: var(--inputs);
+}
+
+.mileageGroup {
+  display: flex;
+
+  width: 320px;
+  height: 44px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+  background: var(--inputs);
+}
+
+.mileageInput {
   width: 160px;
   height: 44px;
 
+  padding: 0 24px;
+
   border: none;
-
-  padding: 0 16px;
-
-  background: var(--inputs);
+  background: transparent;
 
   color: var(--main);
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
 
   outline: none;
 }
 
-.filters label:nth-of-type(3) input {
-  border-radius: 12px 0 0 12px;
+.mileageInput:first-child {
+  border-right: 1px solid var(--gray-light);
 }
 
-.filters label:nth-of-type(4) input {
-  border-radius: 0 12px 12px 0;
-}
-
-.filters input::placeholder {
+.mileageInput::placeholder {
   color: var(--main);
 }
 
-.filters button {
+.mileageInput::-webkit-outer-spin-button,
+.mileageInput::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.mileageInput[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.searchButton {
   width: 156px;
+  height: 44px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 12px;
+
+  background: var(--button);
+  color: var(--white);
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+
+  cursor: pointer;
+
+  transition: background-color 180ms ease;
+}
+
+.searchButton:hover,
+.searchButton:focus {
+  background: var(--button-hover);
 }
 
 @media (max-width: 1279px) {
   .filters {
     width: 100%;
-
     grid-template-columns: repeat(2, minmax(240px, 1fr));
-
-    justify-content: center;
   }
 
-  .filters button {
+  .selectWrapper,
+  .selectButton,
+  .mileageGroup,
+  .searchButton {
     width: 100%;
+  }
+
+  .mileageInput {
+    width: 50%;
   }
 }
 
@@ -89,21 +213,16 @@
   .filters {
     display: flex;
     flex-direction: column;
-
     gap: 14px;
 
     margin-bottom: 40px;
   }
 
-  .filters label,
-  .filters select,
-  .filters input,
-  .filters button {
+  .field,
+  .selectWrapper,
+  .selectButton,
+  .mileageGroup,
+  .searchButton {
     width: 100%;
-  }
-
-  .filters label:nth-of-type(3) input,
-  .filters label:nth-of-type(4) input {
-    border-radius: 12px;
   }
 }

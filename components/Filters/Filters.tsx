@@ -11,11 +11,13 @@ type FiltersProps = {
 
 export default function Filters({ onSubmit }: FiltersProps) {
   const [filtersData, setFiltersData] = useState<FiltersResponse | null>(null);
-
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
   const [minMileage, setMinMileage] = useState("");
   const [maxMileage, setMaxMileage] = useState("");
+
+  const [isBrandOpen, setIsBrandOpen] = useState(false);
+  const [isPriceOpen, setIsPriceOpen] = useState(false);
 
   useEffect(() => {
     async function loadFilters() {
@@ -44,6 +46,9 @@ export default function Filters({ onSubmit }: FiltersProps) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    setIsBrandOpen(false);
+    setIsPriceOpen(false);
+
     onSubmit({
       ...(brand ? { brand } : {}),
       ...(price ? { price: Number(price) } : {}),
@@ -54,59 +59,167 @@ export default function Filters({ onSubmit }: FiltersProps) {
 
   return (
     <form className={styles.filters} onSubmit={handleSubmit}>
-      <label>
-        Car brand
+      <div className={styles.field}>
+        <span className={styles.label}>Car brand</span>
 
-        <select value={brand} onChange={(event) => setBrand(event.target.value)}>
-          <option value="">Choose a brand</option>
+        <div className={styles.selectWrapper}>
+          <button
+            className={styles.selectButton}
+            type="button"
+            onClick={() => {
+              setIsBrandOpen((prev) => !prev);
+              setIsPriceOpen(false);
+            }}
+          >
+            <span>{brand || "Choose a brand"}</span>
 
-          {filtersData?.brands.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
-        </select>
-      </label>
+            <svg
+              className={`${styles.selectIcon} ${
+                isBrandOpen ? styles.selectIconOpen : ""
+              }`}
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 6L8 10L12 6"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
 
-      <label>
-        Price / 1 hour
+          {isBrandOpen && (
+            <ul className={styles.optionsList}>
+              <li>
+                <button
+                  className={styles.option}
+                  type="button"
+                  onClick={() => {
+                    setBrand("");
+                    setIsBrandOpen(false);
+                  }}
+                >
+                  Choose a brand
+                </button>
+              </li>
 
-        <select value={price} onChange={(event) => setPrice(event.target.value)}>
-          <option value="">Choose a price</option>
+              {filtersData?.brands.map((item) => (
+                <li key={item}>
+                  <button
+                    className={styles.option}
+                    type="button"
+                    onClick={() => {
+                      setBrand(item);
+                      setIsBrandOpen(false);
+                    }}
+                  >
+                    {item}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
 
-          {priceOptions.map((item) => (
-            <option key={item} value={item}>
-              To ${item}
-            </option>
-          ))}
-        </select>
-      </label>
+      <div className={styles.field}>
+        <span className={styles.label}>Price / 1 hour</span>
 
-      <label>
-        Car mileage / km
+        <div className={styles.selectWrapper}>
+          <button
+            className={styles.selectButton}
+            type="button"
+            onClick={() => {
+              setIsPriceOpen((prev) => !prev);
+              setIsBrandOpen(false);
+            }}
+          >
+            <span>{price ? `To $${price}` : "Choose a price"}</span>
 
-        <input
-          type="number"
-          min="0"
-          placeholder="From"
-          value={minMileage}
-          onChange={(event) => setMinMileage(event.target.value)}
-        />
-      </label>
+            <svg
+              className={`${styles.selectIcon} ${
+                isPriceOpen ? styles.selectIconOpen : ""
+              }`}
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 6L8 10L12 6"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
 
-      <label>
-        &nbsp;
+          {isPriceOpen && (
+            <ul className={styles.optionsList}>
+              <li>
+                <button
+                  className={styles.option}
+                  type="button"
+                  onClick={() => {
+                    setPrice("");
+                    setIsPriceOpen(false);
+                  }}
+                >
+                  Choose a price
+                </button>
+              </li>
 
-        <input
-          type="number"
-          min="0"
-          placeholder="To"
-          value={maxMileage}
-          onChange={(event) => setMaxMileage(event.target.value)}
-        />
-      </label>
+              {priceOptions.map((item) => (
+                <li key={item}>
+                  <button
+                    className={styles.option}
+                    type="button"
+                    onClick={() => {
+                      setPrice(String(item));
+                      setIsPriceOpen(false);
+                    }}
+                  >
+                    To ${item}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
 
-      <button className="primaryButton" type="submit">
+      <div className={styles.field}>
+        <span className={styles.label}>Car mileage / km</span>
+
+        <div className={styles.mileageGroup}>
+          <input
+            className={styles.mileageInput}
+            type="number"
+            min="0"
+            placeholder="From"
+            value={minMileage}
+            onChange={(event) => setMinMileage(event.target.value)}
+          />
+
+          <input
+            className={styles.mileageInput}
+            type="number"
+            min="0"
+            placeholder="To"
+            value={maxMileage}
+            onChange={(event) => setMaxMileage(event.target.value)}
+          />
+        </div>
+      </div>
+
+      <button className={styles.searchButton} type="submit">
         Search
       </button>
     </form>
