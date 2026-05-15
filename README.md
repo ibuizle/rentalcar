@@ -6,11 +6,11 @@ The application allows users to browse available cars, filter them by different 
 
 ## Live Demo
 
-[Live Website](YOUR_DEPLOY_LINK)
+[Live Website](https://rentalcar-git-main-ibuizles-projects.vercel.app/)
 
 ## GitHub Repository
 
-[GitHub Repository](YOUR_GITHUB_LINK)
+[GitHub Repository](https://github.com/ibuizle/rentalcar)
 
 ---
 
@@ -96,7 +96,7 @@ Filtering is implemented on the backend.
 Clone the repository:
 
 ```bash
-git clone YOUR_GITHUB_LINK
+git clone https://github.com/ibuizle/rentalcar.git
 ```
 
 Install dependencies:
