@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
 import Calendar from "@/components/Calendar/Calendar";
 import { rentCar } from "@/lib/cars";
-import type { RentalFormValues } from "@/types/car";
+import type { BookingRequestPayload, RentalFormValues } from "@/types/car";
 import styles from "./RentalForm.module.css";
 
 type RentalFormProps = {
@@ -41,11 +41,13 @@ export default function RentalForm({ carId }: RentalFormProps) {
     try {
       setIsSubmitting(true);
 
-      const response = await rentCar(carId, {
+      const payload: BookingRequestPayload = {
         name,
         email,
-        comment,
-      });
+        ...(comment ? { comment } : {}),
+      };
+
+      const response = await rentCar(carId, payload);
 
       toast.success(response.message || "Booking request created successfully");
       setValues(initialValues);

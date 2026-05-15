@@ -22,8 +22,8 @@ export default function Filters({ onSubmit }: FiltersProps) {
       try {
         const data = await getCarFilters();
         setFiltersData(data);
-      } catch (error) {
-        console.error("Failed to load filters", error);
+      } catch {
+        setFiltersData(null);
       }
     }
 

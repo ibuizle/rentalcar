@@ -1,11 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
+
 import CarCard from "@/components/CarCard/CarCard";
 import Filters from "@/components/Filters/Filters";
 import Loader from "@/components/Loader/Loader";
+
 import { useCars } from "@/hooks/useCars";
+
 import type { CarsQueryParams } from "@/types/car";
+
 import styles from "./Catalog.module.css";
 
 export default function CatalogPage() {

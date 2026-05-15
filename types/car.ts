@@ -56,7 +56,7 @@ export interface RentalFormValues {
 export interface BookingRequestPayload {
   name: string;
   email: string;
-  comment: string;
+  comment?: string;
 }
 
 export interface BookingResponse {

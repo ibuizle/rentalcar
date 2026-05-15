@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
+
 import Image from "next/image";
 import { notFound } from "next/navigation";
+
 import {
   MapPin,
   CircleCheck,
@@ -10,9 +13,16 @@ import {
 } from "lucide-react";
 
 import { getCarById } from "@/lib/cars";
+
 import RentalForm from "@/components/RentalForm/RentalForm";
 
 import styles from "./Details.module.css";
+
+export const metadata: Metadata = {
+  title: "Car Details | RentalCar",
+  description:
+    "View detailed information about the selected rental car and book it online.",
+};
 
 type DetailsPageProps = {
   params: Promise<{

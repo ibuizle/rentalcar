@@ -10,23 +10,27 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.logo} aria-label="RentalCar home">
-        <Image
-          src="/logo.svg"
-          alt="RentalCar"
-          width={104}
-          height={16}
-          priority
-        />
+      <Link
+        href="/"
+        className={styles.logo}
+        aria-label="RentalCar home"
+        prefetch={false}
+      >
+        <Image src="/logo.svg" alt="RentalCar" width={104} height={16} />
       </Link>
 
       <nav className={styles.nav}>
-        <Link href="/" className={pathname === "/" ? styles.active : undefined}>
+        <Link
+          href="/"
+          prefetch={false}
+          className={pathname === "/" ? styles.active : undefined}
+        >
           Home
         </Link>
 
         <Link
           href="/catalog"
+          prefetch={false}
           className={pathname.startsWith("/catalog") ? styles.active : undefined}
         >
           Catalog
