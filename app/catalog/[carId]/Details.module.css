@@ -1,15 +1,11 @@
 .detailsPage {
   max-width: 1440px;
-
   margin: 0 auto;
-
   padding: 84px 120px 104px;
 
   display: grid;
   grid-template-columns: 640px 488px;
-
-  gap: 64px;
-
+  gap: 72px;
   align-items: start;
 }
 
@@ -22,29 +18,24 @@
 .detailsImage {
   width: 640px;
   height: 512px;
-
   object-fit: cover;
-
   border-radius: 19px;
-
   background: var(--badges);
 }
 
 .detailsInfo {
-  padding-top: 8px;
+  padding-top: 20px;
 }
 
 .titleRow {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 16px;
-
   margin-bottom: 8px;
 }
 
 .titleRow h1 {
   margin: 0;
-
   font-size: 24px;
   line-height: 1.33;
   font-weight: 600;
@@ -52,21 +43,19 @@
 
 .carId {
   color: var(--gray);
-
   font-size: 16px;
+  line-height: 1.5;
 }
 
 .detailsLocation {
   display: flex;
   align-items: center;
   gap: 16px;
-
   margin-bottom: 16px;
 
   color: var(--main);
-
-  font-size: 14px;
-  line-height: 1.43;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
 .detailsLocation span {
@@ -77,9 +66,7 @@
 
 .detailsPrice {
   margin: 0 0 32px;
-
   color: var(--button);
-
   font-size: 24px;
   font-weight: 600;
   line-height: 1.33;
@@ -87,19 +74,17 @@
 
 .detailsDescription {
   margin: 0 0 68px;
-
   color: var(--main);
-
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
-.detailsBlock {
-  margin-top: 48px;
+.detailsBlock:not(:last-child) {
+  margin-bottom: 110px;
 }
 
 .detailsBlock h2 {
   margin: 0 0 20px;
-
   font-size: 20px;
   line-height: 1.2;
   font-weight: 600;
@@ -108,13 +93,11 @@
 .detailsBlock ul {
   margin: 0;
   padding: 0;
-
   list-style: none;
 
   color: var(--main);
-
-  font-size: 14px;
-  line-height: 1.43;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
 .detailsBlock li {
@@ -127,10 +110,16 @@
   margin-bottom: 16px;
 }
 
+.detailsBlock svg {
+  flex-shrink: 0;
+}
+
 @media (max-width: 1439px) {
   .detailsPage {
     padding-left: 32px;
     padding-right: 32px;
+    grid-template-columns: minmax(0, 640px) minmax(0, 488px);
+    gap: 48px;
   }
 }
 
@@ -139,11 +128,18 @@
     grid-template-columns: 1fr;
   }
 
+  .detailsInfo {
+    padding-top: 0;
+  }
+
   .detailsImage {
     width: 100%;
     height: auto;
-
     aspect-ratio: 640 / 512;
+  }
+
+  .detailsBlock:not(:last-child) {
+    margin-bottom: 64px;
   }
 }
 
@@ -156,16 +152,17 @@
     gap: 32px;
   }
 
-  .detailsBlock {
-    margin-top: 40px;
-  }
-
   .detailsLocation {
     flex-direction: column;
     align-items: flex-start;
+    gap: 8px;
   }
 
   .titleRow {
     flex-wrap: wrap;
+  }
+
+  .detailsBlock:not(:last-child) {
+    margin-bottom: 48px;
   }
 }
