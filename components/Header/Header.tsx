@@ -21,25 +21,18 @@ export default function Header() {
           />
         </Link>
 
-        <nav className={styles.nav}>
-          <Link
-            href="/"
-            className={`${styles.link} ${
-              pathname === "/" ? styles.active : ""
-            }`}
-          >
-            Home
-          </Link>
+      <nav className={styles.nav}>
+  <Link href="/" className={pathname === "/" ? styles.active : undefined}>
+    Home
+  </Link>
 
-          <Link
-            href="/catalog"
-            className={`${styles.link} ${
-              pathname.startsWith("/catalog") ? styles.active : ""
-            }`}
-          >
-            Catalog
-          </Link>
-        </nav>
+  <Link
+    href="/catalog"
+    className={pathname === "/catalog" ? styles.active : undefined}
+  >
+    Catalog
+  </Link>
+</nav>
       </div>
     </header>
   );
